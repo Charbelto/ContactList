@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Contacts</h1>
+
+<a href="/add" class="btn btn-success">Add Contact</a>
+
+{% for contact in contacts %}
+<div class="card mt-3">
+  <div class="card-body">
+    <h5 class="card-title">{{ contact.name }}</h5>
+    <p class="card-text">
+      Phone: {{ contact.phone }}<br>
+      Email: {{ contact.email }}<br>
+      Address: {{ contact.address }} <br>
+      Profession: {{ contact.profession }} <br>
+        </p>
+    <a href="/edit/{{contact.id}}" class="btn btn-secondary">Edit</a>
+    <a href="/delete/{{contact.id}}" class="btn btn-danger">Delete</a>
+  </div>
+</div>
+{% endfor %}
+
+{% endblock %}
